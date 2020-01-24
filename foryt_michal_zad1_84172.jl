@@ -1,3 +1,4 @@
+## Michal Foryt
 #import Pkg;
 #Pkg.add("Distributions")
 using Distributions
@@ -40,12 +41,14 @@ function simulateMultipleRuns(n, m)
     end
 
     # Find of best solution from the array
-    index = findall(x->x==maximum(simulation_results), simulation_results)
+    index = findall(elem->elem==maximum(simulation_results), simulation_results)
     # Write to the file
     io = open("michal_foryt_84172.txt", "w");
     result_text = string(ss_array[index], " - MAX REVENUE: ", maximum(simulation_results))
     write(io, result_text);
     close(io);
+    println(result_text)
 end
 
 simulateMultipleRuns(10_000_000, 50.0)
+
